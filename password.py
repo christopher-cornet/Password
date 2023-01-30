@@ -44,27 +44,28 @@ def spe_char_pwd():
 
 # 2. Vérifiez si le mot de passe choisi respecte les exigences de sécurité.
 def check_security():
-    if length_pwd():
-        if uppercase_pwd():
-            if lowercase_pwd():
-                if number_pwd():
-                    if spe_char_pwd():
-                        print("Le mot de passe est VALIDE.")
-                        return True
+    while True:
+        if length_pwd():
+            if uppercase_pwd():
+                if lowercase_pwd():
+                    if number_pwd():
+                        if spe_char_pwd():
+                            print("Le mot de passe est VALIDE.")
+                            return True
+                        else:
+                            print("Le mot de passe ne contient pas de caractères spéciaux.")
+                            ask_user_pwd()
                     else:
-                        print("Le mot de passe ne contient pas de caractères spéciaux.")
+                        print("Le mot de passe ne contient pas de nombre.")
                         ask_user_pwd()
                 else:
-                    print("Le mot de passe ne contient pas de nombre.")
+                    print("Le mot de passe ne contient pas de minuscule.")
                     ask_user_pwd()
             else:
-                print("Le mot de passe ne contient pas de minuscule.")
+                print("Le mot de passe ne contient pas de majuscule.")
                 ask_user_pwd()
         else:
-            print("Le mot de passe ne contient pas de majuscule.")
+            print("Le mot de passe est trop court.")
             ask_user_pwd()
-    else:
-        print("Le mot de passe est trop court.")
-        ask_user_pwd()
 
 check_security()
