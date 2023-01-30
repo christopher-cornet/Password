@@ -1,4 +1,5 @@
 import string
+import hashlib
 
 # 1. Demander à l'utilisateur de choisir un mot de passe.
 def ask_user_pwd():
@@ -69,3 +70,7 @@ def check_security():
             ask_user_pwd()
 
 check_security()
+
+hash_pwd = hashlib.sha256(password.encode('utf-8'))
+str_hash = hash_pwd.hexdigest()
+print(str_hash)
